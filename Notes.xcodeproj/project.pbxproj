@@ -15,6 +15,7 @@
 		C69A00572C101D530050691F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C69A00562C101D530050691F /* Base */; };
 		C69A005F2C101DA10050691F /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A005E2C101DA10050691F /* NoteViewController.swift */; };
 		C69A00612C101DC30050691F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A00602C101DC30050691F /* EntryViewController.swift */; };
+		C69A00642C10516F0050691F /* MemoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C69A00622C10516F0050691F /* MemoDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C69A00582C101D530050691F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C69A005E2C101DA10050691F /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		C69A00602C101DC30050691F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		C69A00632C10516F0050691F /* MemoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MemoDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		C69A003E2C101D510050691F = {
 			isa = PBXGroup;
 			children = (
+				C69A00622C10516F0050691F /* MemoDataModel.xcdatamodeld */,
 				C69A00492C101D510050691F /* Notes */,
 				C69A00482C101D510050691F /* Products */,
 			);
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C69A005F2C101DA10050691F /* NoteViewController.swift in Sources */,
+				C69A00642C10516F0050691F /* MemoDataModel.xcdatamodeld in Sources */,
 				C69A00612C101DC30050691F /* EntryViewController.swift in Sources */,
 				C69A004F2C101D510050691F /* ViewController.swift in Sources */,
 				C69A004B2C101D510050691F /* AppDelegate.swift in Sources */,
@@ -369,6 +373,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C69A00622C10516F0050691F /* MemoDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C69A00632C10516F0050691F /* MemoDataModel.xcdatamodel */,
+			);
+			currentVersion = C69A00632C10516F0050691F /* MemoDataModel.xcdatamodel */;
+			name = MemoDataModel.xcdatamodeld;
+			path = /Users/chj/Desktop/IosProject/Notes/MemoDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C69A003F2C101D510050691F /* Project object */;
 }
