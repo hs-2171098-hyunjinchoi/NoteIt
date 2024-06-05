@@ -65,6 +65,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    // 스와이프하여 삭제 기능 활성화
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presentDeleteAlert(at: indexPath)
+        }
+    }
+    
+    // 삭제 확인 알림 표시
+    func presentDeleteAlert(at indexPath: IndexPath) {
+        let alert = UIAlertController(title: "메모 삭제", message: "이 메모를 삭제하시겠습니까?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "삭제", style: .destructive, handler: { _ in
+            self.deleteNote(at: indexPath)
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        present(alert, animated: true)
+    }
+
+    // 메모 삭제 로직
+    func deleteNote(at indexPath: IndexPath) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let noteToDelete = models[indexPath.row]
+        
+        // Core Data에서 메모 삭제
+        context.delete(noteToDelete)
+        models.remove(at: indexPath.row)
+
+        // tableView 참조하여 행 삭제
+        self.table.deleteRows(at: [indexPath], with: .fade)
+
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context after deleting note: \(error)")
+        }
+    }
+
+
 
     // 테이블 뷰의 행 수를 반환하는 메서드
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
