@@ -200,6 +200,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="iSf-Km-tqi">
+                                <rect key="frame" x="227" y="123" width="150" height="4"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLy-wt-86M">
+                                <rect key="frame" x="339.66666666666669" y="135" width="37.333333333333314" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kHj-0D-Iey"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -208,8 +217,13 @@
                             <constraint firstItem="0zM-Yi-sqN" firstAttribute="leading" secondItem="kHj-0D-Iey" secondAttribute="leading" id="EtT-DG-K4G"/>
                             <constraint firstItem="0zM-Yi-sqN" firstAttribute="top" secondItem="kHj-0D-Iey" secondAttribute="top" constant="52" id="FUw-PC-a2g"/>
                             <constraint firstItem="0zM-Yi-sqN" firstAttribute="bottom" secondItem="kHj-0D-Iey" secondAttribute="bottom" id="Jcx-3a-14y"/>
+                            <constraint firstItem="iSf-Km-tqi" firstAttribute="top" secondItem="kHj-0D-Iey" secondAttribute="top" constant="20" id="Khm-Bw-JI1"/>
                             <constraint firstItem="0zM-Yi-sqN" firstAttribute="centerX" secondItem="oVb-Nf-LR8" secondAttribute="centerX" id="Nd9-w9-MZm"/>
+                            <constraint firstItem="iSf-Km-tqi" firstAttribute="leading" secondItem="kHj-0D-Iey" secondAttribute="leading" constant="227" id="Pxl-CZ-ggq"/>
+                            <constraint firstItem="GLy-wt-86M" firstAttribute="trailing" secondItem="iSf-Km-tqi" secondAttribute="trailing" id="fGn-zk-Zln"/>
+                            <constraint firstItem="GLy-wt-86M" firstAttribute="top" secondItem="iSf-Km-tqi" secondAttribute="bottom" constant="8" symbolic="YES" id="fNE-wb-RLT"/>
                             <constraint firstItem="oVb-Nf-LR8" firstAttribute="centerY" secondItem="fCr-hG-48Q" secondAttribute="centerY" id="iyu-yN-Swt"/>
+                            <constraint firstItem="iSf-Km-tqi" firstAttribute="trailing" secondItem="fCr-hG-48Q" secondAttribute="trailingMargin" id="mHg-aR-c6f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="To Do" id="lbE-MQ-GQC">
@@ -222,6 +236,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="label" destination="oVb-Nf-LR8" id="XmR-1x-oJH"/>
+                        <outlet property="progressText" destination="GLy-wt-86M" id="zlz-TQ-pI4"/>
+                        <outlet property="progressView" destination="iSf-Km-tqi" id="phI-8p-xbM"/>
                         <outlet property="tableView" destination="0zM-Yi-sqN" id="7hf-TS-8RB"/>
                     </connections>
                 </viewController>

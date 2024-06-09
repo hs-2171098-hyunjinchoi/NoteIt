@@ -19,6 +19,8 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var label: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet var progressText: UILabel!
     
     // MARK: - IBActions
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
@@ -66,6 +68,7 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
                 self.tableView.isHidden = self.items.isEmpty
                 self.label.isHidden = !self.items.isEmpty
                 self.tableView.reloadData()
+                self.updateProgress()  // 진행률 업데이트 호출
             }
         } catch {
             print("Error fetching checklist items: \(error)")
@@ -80,11 +83,30 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
                 self.tableView.reloadData()
                 self.tableView.isHidden = self.items.isEmpty
                 self.label.isHidden = !self.items.isEmpty
+                self.updateProgress()  // 진행률 업데이트 호출
             }
         } catch {
             print("Error saving checklist items: \(error)")
         }
     }
+    
+    func updateProgress() {
+        let totalItems = items.count
+        let completedItems = items.filter { $0.isChecked }.count
+        let progress = totalItems > 0 ? Float(completedItems) / Float(totalItems) : 0.0
+        DispatchQueue.main.async {
+            self.progressView.setProgress(progress, animated: true)
+            self.progressText.text = "\(Int(progress * 100))% Complete"
+            
+            // 진행률이 100%일 때 색상을 초록색으로 변경
+            if progress == 1.0 {
+                self.progressView.progressTintColor = UIColor.green
+            } else {
+                self.progressView.progressTintColor = UIColor.systemBlue // 또는 기본 색상
+            }
+        }
+    }
+
     
     // MARK: - UITableViewDataSource
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
