@@ -40,6 +40,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
 
+        // 날짜에 따라 노트를 정렬
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
         do {
             models = try context.fetch(fetchRequest)
             DispatchQueue.main.async {
@@ -51,6 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("Failed to fetch notes: \(error)")
         }
     }
+
 
     // 'New Note' 버튼을 탭했을 때 호출되는 액션
     @IBAction func didTapNewNote() {
