@@ -133,6 +133,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         vc.noteTitle = note.title ?? ""
         vc.note = note.note ?? ""
+        vc.noteObject = note // 선택된 메모 객체 전달
         navigationController?.pushViewController(vc, animated: true)
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadNotes() // 메모 데이터 새로고침
+    }
+
 }
