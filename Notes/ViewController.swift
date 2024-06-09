@@ -70,12 +70,42 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    // 스와이프하여 삭제 기능 활성화
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            presentDeleteAlert(at: indexPath)
+   
+    // 스와이프 액션을 위한 메소드
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // 공유 액션 생성
+        let shareAction = UIContextualAction(style: .normal, title: "Share") { (action, view, completionHandler) in
+            self.shareNote(at: indexPath)
+            completionHandler(true)
         }
+        shareAction.backgroundColor = UIColor.systemYellow
+        
+        // 삭제 액션 생성
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            self.presentDeleteAlert(at: indexPath)
+            completionHandler(true)
+        }
+
+        // 액션 배열을 설정과 함께 반환
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        return configuration
+    }
+    
+    // 공유 기능을 위한 메소드
+    private func shareNote(at indexPath: IndexPath) {
+        let note = models[indexPath.row]
+        let noteText = note.note ?? "No content to share"
+        let activityViewController = UIActivityViewController(activityItems: [noteText], applicationActivities: nil)
+        
+        // iPad에서의 공유 문제를 방지
+        if let popoverController = activityViewController.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
+        // ActivityViewController를 표시
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     // 삭제 확인 알림 표시
