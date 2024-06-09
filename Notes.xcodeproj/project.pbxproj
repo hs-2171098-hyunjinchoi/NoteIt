@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C612FDD52C15EA5300302360 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C612FDD42C15EA5300302360 /* ChecklistViewController.swift */; };
 		C69A004B2C101D510050691F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A004A2C101D510050691F /* AppDelegate.swift */; };
 		C69A004D2C101D510050691F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A004C2C101D510050691F /* SceneDelegate.swift */; };
 		C69A004F2C101D510050691F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69A004E2C101D510050691F /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C612FDD42C15EA5300302360 /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		C69A00472C101D510050691F /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C69A004A2C101D510050691F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C69A004C2C101D510050691F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				C69A00582C101D530050691F /* Info.plist */,
 				C69A005E2C101DA10050691F /* NoteViewController.swift */,
 				C69A00602C101DC30050691F /* EntryViewController.swift */,
+				C612FDD42C15EA5300302360 /* ChecklistViewController.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C69A005F2C101DA10050691F /* NoteViewController.swift in Sources */,
+				C612FDD52C15EA5300302360 /* ChecklistViewController.swift in Sources */,
 				C69A00642C10516F0050691F /* MemoDataModel.xcdatamodeld in Sources */,
 				C69A00612C101DC30050691F /* EntryViewController.swift in Sources */,
 				C69A004F2C101D510050691F /* ViewController.swift in Sources */,
