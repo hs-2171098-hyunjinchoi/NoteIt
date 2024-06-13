@@ -59,17 +59,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     // 'New Note' 버튼을 탭했을 때 호출되는 액션
     @IBAction func didTapNewNote() {
-        guard let vc = storyboard?.instantiateViewController(identifier: "new") as? EntryViewController else {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "new") as? EntryViewController else {
             return
         }
         vc.title = "New Note"
         vc.navigationItem.largeTitleDisplayMode = .never
-        vc.completion = { noteTitle, note in
+        vc.completion = { (noteTitle: String, note: String) -> Void in
             self.navigationController?.popToRootViewController(animated: true)
             self.loadNotes() // 새 메모를 추가한 후 데이터를 다시 로드
         }
         navigationController?.pushViewController(vc, animated: true)
     }
+
    
     // 스와이프 액션을 위한 메소드
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
