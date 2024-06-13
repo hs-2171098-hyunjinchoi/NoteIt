@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u1I-mh-yrb">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -66,7 +67,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="gMW-3U-vNk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fg9-zI-Vch">
-                            <color key="tintColor" red="0.053523436205314599" green="0.080114172157718599" blue="0.22207232603092786" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapNewNote" destination="BYZ-38-t0r" id="lw4-LL-xlb"/>
                             </connections>
@@ -139,9 +139,7 @@
         <scene sceneID="CaP-2o-VXe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1M6-sF-26O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Note" id="txb-U7-nJi">
-                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Note" id="txb-U7-nJi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="W3B-t1-4io">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -228,7 +226,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="To Do" id="lbE-MQ-GQC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3I4-Hu-Dwu">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addNewItem:" destination="If7-pu-hpl" id="gf2-X2-KDl"/>
                             </connections>
@@ -271,39 +268,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQB-5F-ABO">
-                                <rect key="frame" x="10" y="69" width="373" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b8l-SS-KQQ">
-                                <rect key="frame" x="10" y="113" width="373" height="695"/>
+                                <rect key="frame" x="10" y="158" width="373" height="670"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSm-OR-Cax">
+                                <rect key="frame" x="10" y="69" width="373" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Recoding"/>
+                                <connections>
+                                    <action selector="recordButtonTapped:" destination="cDG-3x-jzg" eventType="touchUpInside" id="b7X-Ud-eNM"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQB-5F-ABO">
+                                <rect key="frame" x="10" y="114" width="373" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k3V-Sr-EHc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="k3V-Sr-EHc" firstAttribute="bottom" secondItem="b8l-SS-KQQ" secondAttribute="bottom" constant="10" id="DoK-WA-9dj"/>
-                            <constraint firstItem="k3V-Sr-EHc" firstAttribute="trailing" secondItem="b8l-SS-KQQ" secondAttribute="trailing" constant="10" id="Hrs-o4-3fE"/>
-                            <constraint firstItem="uQB-5F-ABO" firstAttribute="leading" secondItem="k3V-Sr-EHc" secondAttribute="leading" constant="10" id="W8d-CQ-Snh"/>
-                            <constraint firstItem="uQB-5F-ABO" firstAttribute="top" secondItem="k3V-Sr-EHc" secondAttribute="top" constant="10" id="ee7-aM-Nb6"/>
-                            <constraint firstItem="b8l-SS-KQQ" firstAttribute="top" secondItem="uQB-5F-ABO" secondAttribute="bottom" constant="10" id="kcT-We-V1Y"/>
-                            <constraint firstItem="b8l-SS-KQQ" firstAttribute="leading" secondItem="k3V-Sr-EHc" secondAttribute="leading" constant="10" id="ltZ-Nv-tMu"/>
-                            <constraint firstItem="k3V-Sr-EHc" firstAttribute="trailing" secondItem="uQB-5F-ABO" secondAttribute="trailing" constant="10" id="zkL-ZS-NJm"/>
+                            <constraint firstItem="b8l-SS-KQQ" firstAttribute="leading" secondItem="k3V-Sr-EHc" secondAttribute="leading" constant="10" id="3dp-MU-hbV"/>
+                            <constraint firstItem="k3V-Sr-EHc" firstAttribute="trailing" secondItem="b8l-SS-KQQ" secondAttribute="trailing" constant="10" id="5Sv-ab-JUr"/>
+                            <constraint firstItem="b8l-SS-KQQ" firstAttribute="bottom" secondItem="k3V-Sr-EHc" secondAttribute="bottom" constant="10" id="BUg-JT-FVF"/>
+                            <constraint firstItem="b8l-SS-KQQ" firstAttribute="top" secondItem="uQB-5F-ABO" secondAttribute="bottom" constant="10" id="Clt-TT-2n6"/>
+                            <constraint firstItem="uQB-5F-ABO" firstAttribute="centerX" secondItem="wx5-fl-Ygb" secondAttribute="centerX" id="FqJ-XB-Nha"/>
+                            <constraint firstItem="k3V-Sr-EHc" firstAttribute="trailing" secondItem="uQB-5F-ABO" secondAttribute="trailing" constant="10" id="Kpl-zq-SDw"/>
+                            <constraint firstItem="uQB-5F-ABO" firstAttribute="top" secondItem="kSm-OR-Cax" secondAttribute="bottom" constant="10" id="OWP-gr-1dy"/>
+                            <constraint firstItem="kSm-OR-Cax" firstAttribute="leading" secondItem="wx5-fl-Ygb" secondAttribute="leading" constant="10" id="YfM-2s-Lpm"/>
+                            <constraint firstItem="uQB-5F-ABO" firstAttribute="leading" secondItem="k3V-Sr-EHc" secondAttribute="leading" constant="10" id="fqy-Ca-NUg"/>
+                            <constraint firstItem="kSm-OR-Cax" firstAttribute="top" secondItem="k3V-Sr-EHc" secondAttribute="top" constant="10" id="p26-Fp-BK4"/>
+                            <constraint firstAttribute="trailing" secondItem="kSm-OR-Cax" secondAttribute="trailing" constant="10" id="uBV-yB-9QF"/>
+                            <constraint firstItem="b8l-SS-KQQ" firstAttribute="centerX" secondItem="wx5-fl-Ygb" secondAttribute="centerX" id="y66-6m-kMP"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="noteField" destination="b8l-SS-KQQ" id="pgS-Im-tPN"/>
+                        <outlet property="recordButton" destination="kSm-OR-Cax" id="5y6-sE-QDw"/>
                         <outlet property="titleField" destination="uQB-5F-ABO" id="n5x-Zu-5yu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tzs-nT-hNp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2453" y="21"/>
+            <point key="canvasLocation" x="2452.6717557251909" y="20.422535211267608"/>
         </scene>
         <!--ToDo-->
         <scene sceneID="IuG-zs-SwW">
@@ -327,6 +338,7 @@
             <point key="canvasLocation" x="311" y="692"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.61043798403804006" green="0.5675087660675896" blue="0.71790431701030921" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
