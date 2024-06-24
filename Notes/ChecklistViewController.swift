@@ -100,7 +100,7 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
             
             // 진행률이 100%일 때 색상을 초록색으로 변경
             if progress == 1.0 {
-                self.progressView.progressTintColor = UIColor.green
+                self.progressView.progressTintColor = UIColor.systemGreen
             } else {
                 self.progressView.progressTintColor = UIColor.systemBlue // 또는 기본 색상
             }
